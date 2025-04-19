@@ -2,9 +2,17 @@ ktor:
   application:
     modules:
       - io.pii.game.ApplicationKt.module
+
   deployment:
     port: 8080
-jwt:
-  domain: "https://jwt-provider-domain/"
-  audience: "jwt-audience"
-  realm: "Kokodi Card Game"
+    watch:
+      - io.pii.game
+
+database:
+  url: "jdbc:sqlite:data/pii-kokodi-game.db"
+  driver: "org.sqlite.JDBC"
+
+#jwt:
+#  domain: "https://jwt-provider-domain/"
+#  audience: "jwt-audience"
+#  realm: "Kokodi Card Game"

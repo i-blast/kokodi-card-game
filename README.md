@@ -7,9 +7,9 @@
 ## Используемые фреймворки и библиотеки
 
 - **Kotlin**
-- **Ktor**
+- **Ktor, JWT Auth**
 - **SQLite, Exposed**
--
+- **Kotlin Test, Mockk, Kotest**
 
 ## Запуск
 

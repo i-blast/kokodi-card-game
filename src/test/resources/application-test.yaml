@@ -1,0 +1,3 @@
+#database:
+#  url: "jdbc:sqlite:file:testdb?mode=memory&cache=shared"
+#  driver: "org.sqlite.JDBC"
