@@ -4,13 +4,15 @@ import kotlinx.coroutines.Dispatchers
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.insertAndGetId
-import org.jetbrains.exposed.sql.insertReturning
+import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 
 class UserRepository(private val database: Database) {
 
     suspend fun findByLogin(login: String): UserEntity? = dbQuery {
-        UsersTable.select(UsersTable.login eq login)
+        UsersTable
+            .selectAll()
+            .where(UsersTable.login eq login)
             .map { it.toUser() }
             .singleOrNull()
     }

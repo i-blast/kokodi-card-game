@@ -6,14 +6,15 @@
 
 ## Используемые фреймворки и библиотеки
 
-- **Kotlin**
+- **Kotlin (JDK 21)**
 - **Ktor, JWT Auth**
 - **SQLite, Exposed**
 - **Kotlin Test, Mockk, Kotest**
+-
 
 ## Запуск
 
--
+- 
 
 ## TODO
 

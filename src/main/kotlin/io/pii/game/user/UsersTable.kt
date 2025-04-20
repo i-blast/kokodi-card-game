@@ -5,11 +5,8 @@ import org.jetbrains.exposed.sql.ResultRow
 import java.util.*
 
 object UsersTable : UUIDTable("users") {
-
     val login = varchar("login", 50).uniqueIndex()
-
     val password = varchar("password", 64)
-
     val name = varchar("name", 50)
 }
 

@@ -1,14 +1,37 @@
 package io.pii.game.user
 
-data class UserCreateDto(
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.Serializable
+import java.util.*
+
+@Serializable
+data class RegisterUserRequest(
     val login: String,
     val password: String,
-    val name: String
+    val name: String,
 )
 
-fun UserCreateDto.toEntity(): UserEntity = UserEntity(
-    id = null,
-    login = login,
-    password = password,
-    name = name
+@Serializable
+data class UserResponse(
+    @Contextual val id: UUID?,
+    val login: String,
+    val name: String,
 )
+
+fun UserEntity.toDto(): UserResponse = UserResponse(
+    id = this.id,
+    login = this.login,
+    name = this.name,
+)
+
+@Serializable
+data class AuthRequest(
+    val login: String,
+    val password: String
+)
+
+@Serializable
+data class AuthResponse(
+    val token: String
+)
+

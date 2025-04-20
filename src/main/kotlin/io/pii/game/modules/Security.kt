@@ -1,29 +1,27 @@
 package io.pii.game.modules
 
 import io.ktor.server.application.*
+import io.ktor.server.auth.*
+import io.ktor.server.auth.jwt.*
+import io.ktor.server.config.*
+import io.pii.game.security.JwtConfig
 
-fun Application.configureSecurity() {
 
-    TODO()
+fun Application.configureSecurity(config: ApplicationConfig) {
 
-/*    val jwtAudience = "jwt-audience"
-    val jwtDomain = "https://jwt-provider-domain/"
-    val jwtRealm = "ktor sample app"
-    val jwtSecret = "secret"
+    JwtConfig.init(config)
 
-    authentication {
-        jwt {
-            realm = jwtRealm
-            verifier(
-                JWT
-                    .require(Algorithm.HMAC256(jwtSecret))
-                    .withAudience(jwtAudience)
-                    .withIssuer(jwtDomain)
-                    .build()
-            )
+    install(Authentication) {
+        jwt("auth-jwt") {
+            verifier(JwtConfig.verifier)
             validate { credential ->
-                if (credential.payload.audience.contains(jwtAudience)) JWTPrincipal(credential.payload) else null
+                val login = credential.payload.getClaim("login").asString()
+                if (login != null) {
+                    JWTPrincipal(credential.payload)
+                } else {
+                    null
+                }
             }
         }
-    }*/
+    }
 }

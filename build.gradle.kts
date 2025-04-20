@@ -33,14 +33,16 @@ dependencies {
 
     // Ktor core
     implementation("io.ktor:ktor-server-core")
-    implementation("io.ktor:ktor-server-config-yaml")
     implementation("io.ktor:ktor-server-netty")
     implementation("io.ktor:ktor-serialization-kotlinx-json")
     implementation("io.ktor:ktor-server-content-negotiation")
+    implementation("io.ktor:ktor-server-status-pages")
 
     // Auth
     implementation("io.ktor:ktor-server-auth")
     implementation("io.ktor:ktor-server-auth-jwt")
+    implementation("com.auth0:java-jwt:4.4.0")
+    implementation("org.mindrot:jbcrypt:0.4")
 
     // DB
     implementation("org.xerial:sqlite-jdbc:$sqlite_version")
