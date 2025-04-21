@@ -17,15 +17,4 @@ fun Route.authRoutes(
         val authRequestDto = call.receive<AuthRequest>()
         call.respond(userService.authenticate(authRequestDto))
     }
-
-    /*    authenticate("auth-jwt") {
-            get("/me") {
-                val principal = call.principal<JWTPrincipal>()!!
-                call.respond(
-                    mapOf(
-                        "user" to principal.payload.getClaim("login").asString()
-                    )
-                )
-            }
-        }*/
 }

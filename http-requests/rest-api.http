@@ -1,0 +1,25 @@
+### Register new user
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "login": "user_ilYa",
+  "password": "pass123",
+  "name": "ilYa"
+}
+
+<> 2025-04-20T123650.200.json
+<> 2025-04-20T121611.500.json
+<> 2025-04-19T214734.500.json
+<> 2025-04-19T214429.500.json
+
+### Login user
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "login": "user_ilYa",
+  "password": "pass123"
+}
+
+<> 2025-04-20T123728.200.json

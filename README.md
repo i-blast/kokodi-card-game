@@ -2,19 +2,24 @@
 
 ## API игры
 
-- 
+1.**Регистрация и аутентификация**
+- `POST /api/auth/register` — регистрация нового пользователя
+- `POST /api/auth/login` — аутентификация пользователя и получение JWT
 
+---
 ## Используемые фреймворки и библиотеки
 
 - **Kotlin (JDK 21)**
-- **Ktor, JWT Auth**
+- **Ktor, JWT (Auth0)**
 - **SQLite, Exposed**
 - **Kotlin Test, Mockk, Kotest**
--
-
+- **Docker**
+---
 ## Запуск
 
-- 
+1. Собрать проект `./gradlew clean build`
+2. Собрать Docker-образ `docker build -t kokodi-card-game .`
+3. Запустить Docker-контейнер `docker run -p 8080:8080 --name kokodi-card-game kokodi-card-game`
 
 ## TODO
 
